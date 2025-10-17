@@ -86,6 +86,11 @@ jobs:
       run: |
         cd frontend
         npm run lint || true
+
+    - name: Run Prettier (auto-fix formatting)
+      run: |
+        cd frontend
+        npm run format:check || true
     
     - name: Build application
       run: |

@@ -22,7 +22,7 @@ class ImageProcessingTests(TestCase):
     
     def test_dms_to_decimal_conversion(self):
         """Test DMS to decimal conversion."""
-        from exifread.classes import Ratio
+        from exifread.utils import Ratio
         
         # Test valid DMS conversion
         dms = [Ratio(40, 1), Ratio(42, 1), Ratio(30, 1)]  # 40°42'30"

@@ -20,7 +20,8 @@ export default function ResultPage() {
     initializeTheme()
     
     try {
-      const parsedResult = parseShareableUrl(searchParams)
+      const parsedResult = parseShareableUrl(new URLSearchParams(searchParams.toString()))
+
       if (parsedResult) {
         setResult(parsedResult as LocationResult)
       } else {

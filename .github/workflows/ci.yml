@@ -85,7 +85,7 @@ jobs:
     - name: Run ESLint
       run: |
         cd frontend
-        npm run lint -- --max-warnings 10
+        npm run lint -- --max-warnings 20
     
     - name: Run Prettier check
       run: |

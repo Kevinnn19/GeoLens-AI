@@ -75,7 +75,13 @@ jobs:
       run: |
         cd frontend
         npm ci
-    
+
+    # ✅ Fix for ESLint TypeScript missing config error
+    - name: Install missing ESLint TypeScript plugins (for CI)
+      run: |
+        cd frontend
+        npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+
     - name: Run ESLint
       run: |
         cd frontend

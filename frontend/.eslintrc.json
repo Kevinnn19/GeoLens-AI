@@ -13,7 +13,8 @@
     "@typescript-eslint/no-empty-function": "off",
     "prefer-const": "warn",
     "no-var": "warn",
-    "react/no-unescaped-entities": "warn"
+    "react/no-unescaped-entities": "warn",
+    "no-unused-vars": "warn"
   },
   "ignorePatterns": ["node_modules/", ".next/", "out/"]
 }

@@ -1,0 +1,39 @@
+version: '3.8'
+
+# Development override for docker-compose.yml
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  backend:
+    environment:
+      - DJANGO_DEBUG=True
+      - DJANGO_SECRET_KEY=dev-secret-key-not-for-production
+    volumes:
+      # Mount source code for hot reloading
+      - ./backend:/app
+      # Exclude node_modules and other build artifacts
+      - /app/uploads
+    command: >
+      sh -c "
+        python manage.py migrate &&
+        python manage.py create_api_user --username=devuser --email=dev@example.com &&
+        python manage.py runserver 0.0.0.0:8000
+      "
+
+  frontend:
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api
+      - NEXT_PUBLIC_MAPBOX_TOKEN=${NEXT_PUBLIC_MAPBOX_TOKEN:-your-mapbox-token-here}
+    volumes:
+      # Mount source code for hot reloading
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    command: >
+      sh -c "
+        npm install &&
+        npm run dev
+      "
+    ports:
+      - "3000:3000"

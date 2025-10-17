@@ -1,2 +1,3 @@
-# GeoLens-AI
-GeoLens AI is a smart web app that finds where a photo was taken. It extracts GPS data from images or estimates the location using AI, then shows the result on an interactive map with confidence and accuracy. Built with Django REST Framework, Next.js, and Tailwind CSS for a modern, seamless experience.
+# GeoLens AI
+Photo → Location Tracker  
+A web app that detects location from photos using AI + Mapbox + Django REST + Next.js.

@@ -7,6 +7,8 @@ from typing import Dict, Any, Optional, Tuple
 import exifread
 from PIL import Image
 from PIL.ExifTags import TAGS, GPSTAGS
+from exifread.utils import Ratio
+
 
 
 def extract_gps_from_exif(image_path: str) -> Optional[Dict[str, Any]]:
